@@ -26,6 +26,19 @@ Router.map(function() {
 
   });
 
+  this.route('blogDetail',{
+    controller:ShopController,
+    template:'blogDetail',
+    path:'/blog/:_id',
+    waitOn: function () {
+      return ReactionCore.subsManager.subscribe("article", this.params._id, true);
+    },
+    data: function () {
+      return Articles.findOne(this.params._id);
+    }
+
+  });
+
   
 
 });
