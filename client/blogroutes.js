@@ -12,7 +12,7 @@ Router.map(function() {
     path: '/blog',
     subscriptions: function(){
       Meteor.subscribe("blogAccounts");
-      var blogAccounts = Meteor.users.find({ "username": "admin" }).fetch()[0];  
+      var blogAccounts = Meteor.users.find({ "username": "microduinoblog" }).fetch()[0];  
       blogAccounts && typeof blogAccounts._id != "undefined" && BlogPages.set({
         sort: {
           title: -1
